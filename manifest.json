@@ -1,0 +1,21 @@
+{
+  "manifest_version": 2,
+
+  "name": "JIRA Oncall",
+  "description": "This extension shows healthcheck status of Service services",
+  "version": "1.0",
+  "browser_action": {
+    "default_popup": "popup.html",
+    "default_title": "JIRA HealthChecker",	
+    "default_icon" : "icon2.png"
+  },
+  
+  "permissions": [
+    "https://jira.corp.inmobi.com/",
+    "notifications"
+  ],
+  
+  "background":{
+  	"scripts":["config.js","background.js"]
+  }
+}
