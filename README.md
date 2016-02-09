@@ -1,5 +1,6 @@
 1) Git pull this repo<br/>
-2) Change the filter Id in config.js (filterId), to your respective teams JIRA Filter id. <br/>
+2) Change the "filterId" and "url" in config.js, to your respective teams JIRA Filter id (Available in the URL section when you open a link like "My Open Issues"). <br/>
+3) Change the URL in "permissions" section of manifest.json, to your respective teams JIRA URL (Copy the same URL you just modified in config.js". <br/>
 3) Open chrome://extensions/ in chrome browser<br/>
 4) Click on 'Developer Mode' to enable it<br/>
 5) Click 'Load unpacked extension' and point it to the project location<br/>

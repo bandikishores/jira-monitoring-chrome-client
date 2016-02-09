@@ -1,7 +1,7 @@
 function printStats(){
 	var innerHtml = "";
 	if(!chrome.extension.getBackgroundPage().userloggedin){
-		innerHtml +="Looks like you're not logged in. Make sure you log into <a href='https://jira.corp.inmobi.com' target='_blank'>https://jira.corp.inmobi.com</a>";
+		innerHtml +="Looks like you're not logged in. Make sure you log into <a href='"+ chrome.extension.getBackgroundPage().url +"' target='_blank'>"+ chrome.extension.getBackgroundPage().url +"</a>";
 	}else{
 		var jiraissues = chrome.extension.getBackgroundPage().jiraissues;
 		var jiraissuesSummary = chrome.extension.getBackgroundPage().jiraissuesSummary;
@@ -11,7 +11,7 @@ function printStats(){
 			for(var i = 0; i < jiraissuesSummary.length; i++){
 				var issue = jiraissuesSummary[i];
 				innerHtml +="<tr>";
- 				innerHtml += "<td><a href='https://jira.corp.inmobi.com/browse/"  + issue.key + "' target='_black'>" +issue.key+ "</a></td>";
+ 				innerHtml += "<td><a href='"+ chrome.extension.getBackgroundPage().url +"browse/"  + issue.key + "' target='_black'>" +issue.key+ "</a></td>";
 				innerHtml += "<td>" +issue.fields.summary+ "</td>";
 				innerHtml += "<td>" +issue.fields.priority.name+ "</td>";
 				innerHtml += "<td>" +issue.fields.assignee.name+ "</td>";

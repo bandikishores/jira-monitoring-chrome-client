@@ -27,7 +27,7 @@ function checkAuth(){
 				}
 			}	
 		}
-		xmlhttp.open("GET", "https://jira.corp.inmobi.com/rest/auth/1/session?jsonp-callback=authCallback", true);
+		xmlhttp.open("GET", url+"rest/auth/1/session?jsonp-callback=authCallback", true);
 		xmlhttp.send();
 		xmlhttp.timeout = metricsRequestTimeout;
 		xmlhttp.ontimeout = function () { //alert("Request Timeout");
@@ -128,7 +128,7 @@ function updateValues(){
 				}				
 			}	
 		}
-		xmlhttp.open("GET", "https://jira.corp.inmobi.com/rest/api/2/search?jql=filter="+filterId, true);
+		xmlhttp.open("GET", url+"rest/api/2/search?jql=filter="+filterId, true);
 		xmlhttp.send();
 		xmlhttp.timeout = metricsRequestTimeout;
 		xmlhttp.ontimeout = function () { //alert("Request Timeout");
@@ -148,7 +148,7 @@ chrome.runtime.onMessage.addListener(function(msg, sender) {
 	
 	if(isSingleJIRA)
 	{
-		onClickLink = "https://jira.corp.inmobi.com/browse/"+message;
+		onClickLink = url+"browse/"+message;
 		var isRaised = msg.isRaised;
 		if(isRaised)
 		{
@@ -161,7 +161,7 @@ chrome.runtime.onMessage.addListener(function(msg, sender) {
 	}
 	else
 	{
-		onClickLink = "https://jira.corp.inmobi.com/issues/?filter="+filterId;
+		onClickLink = url+"issues/?filter="+filterId;
 	}
 	
 	chrome.notifications.create(getNotificationId(), {
